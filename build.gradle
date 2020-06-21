@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.2.BUILD-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.param'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
+	// Enable dev tool features like auto re-load changes whithout re-starting server
+	implementation ("org.springframework.boot:spring-boot-devtools")
+	//Enable validation API at bean property level
+	implementation('org.springframework.boot:spring-boot-starter-validation')
+	//Enable xml format request and resonse 
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+	
+	//For swagger configurations
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+	
+	// Actuator for API monitoring
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	
+	// Spring security
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+    runtimeOnly 'com.h2database:h2'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+
+test {
+	useJUnitPlatform()
+}

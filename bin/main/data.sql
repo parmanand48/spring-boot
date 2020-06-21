@@ -1,0 +1,1 @@
+/*insert into employee values(10001, 23, 'Param', 'Admin');*/
