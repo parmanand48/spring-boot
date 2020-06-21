@@ -12,4 +12,4 @@ pluginManagement {
 		}
 	}
 }
-rootProject.name = 'rest-demo'
+rootProject.name = 'spring-boot'
